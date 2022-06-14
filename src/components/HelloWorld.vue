@@ -1,40 +1,44 @@
-<script setup>
-import { ref } from 'vue'
-
-defineProps({
-  msg: String
-})
-
-const count = ref(0)
-</script>
-
 <template>
-  <h1>{{ msg }}</h1>
+    <header>
+        <nav class="navbar navbar-dark bg-primary shadow-sm  ">
+            <div class="container-md">
+                <a class="navbar-brand" href="">
+                    <img src="../assets/logo.png" alt="" height="30">
+                </a>
 
-  <p>
-    Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>
-    +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-  </p>
+                <ul class="navbar-nav me-auto">
 
-  <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">
-      Vite Documentation
-    </a>
-    |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Documentation</a>
-  </p>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Znajdź użytkownika" aria-label="Search">
+                    </form>
 
-  <button type="button" @click="count++">count is: {{ count }}</button>
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
-</template>
+                </ul>
 
-<style scoped>
-a {
-  color: #42b983;
-}
-</style>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <img src="../assets/prof.png"  height="30" alt="" class="me-1 rounded-circle">
+                        <a>Hubert</a>
+                    </li>
+                </ul>       
+            </div>
+        </nav>
+    </header>
+    {{usersList}}
+</template> 
+
+
+
+<script>
+export default {
+  data() {
+    return {
+      usersList: null
+    };
+  },
+  created() {
+    fetch('https://localhost:44381/api/User/username/string')
+      .then(response => response.json())
+      .then(data => (this.usersList = data));
+  }
+};
+</script>
