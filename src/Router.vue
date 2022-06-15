@@ -3,11 +3,15 @@ import Home from '../components/Home.vue'
 import About from '../components/About.vue'
 import NotFound from '../components/NotFound.vue'
 import Dashboard from '../components/Dashboard.vue'
+import CreatePost from '../components/CreatePost.vue'
+import SignIn from '../components/SignIn.vue'
 
 const routes = {
     '/': Home,
     '/about': About,
-    '/dashboard': Dashboard,
+    '/dashboard': Dashboard, // Lists all posts
+    '/create-post': CreatePost,
+    '/sign-in': SignIn,
 }
 
 export default {
@@ -33,6 +37,8 @@ export default {
     <a href="#/">Home</a> |
     <a href="#/about">About</a> |
     <a href="#/non-existent-path">Broken Link</a> |
-    <a href="#/dashboard">Dashboard</a>
+    <a href="#/dashboard">Dashboard</a> |
+    <a href="#/create-post">Create post</a> |
+    <a href="#/sign-in">Sign In</a>
     <component :is="currentView" />
 </template>
