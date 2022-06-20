@@ -6,7 +6,7 @@
                 <div class="col" id="first">
                     <img src="../assets/logoblack.png" />
                     <h4>Studbaza to portal umożliwiający
-                        komunikację <br> między studentami</h4>
+                        komunikację <br> między studentami </h4>
                 </div>
                 <div class="col-4 " align="center">
                     <LoginForm />

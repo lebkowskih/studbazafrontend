@@ -58,7 +58,7 @@ export default {
     },
     created() {
         if (this.loggedIn) {
-            this.$router.push("/home");
+            this.$router.push("/profile");
         }
     },
     methods: {
@@ -68,7 +68,7 @@ export default {
                 password: this.password
             }).then(
                 () => {
-                    this.$router.push("/home");
+                    this.$router.push("/profile");
                 },
                 (error) => {
                     this.loading = false;
@@ -77,6 +77,7 @@ export default {
             );
         }
     },
+
 }
 
 </script>

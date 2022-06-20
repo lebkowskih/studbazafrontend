@@ -21,13 +21,12 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ loggedUser }}
-                        </a>
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> {{
+                            currentUser.username }} </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" @click="logout">Wyloguj się</a>
                         </div>
                     </li>
-
                 </ul>
             </div>
         </nav>
@@ -44,21 +43,12 @@ export default {
     data() {
         return {
             usersList: null,
-            username: '',
-            loggedUser: null
+            username: ''
         };
     },
     computed: {
-        loggedIn() {
-            return store.state.status.loggedIn;
-        },
-        username() {
-            this.loggedUser = localStorage.getItem('username')
-        }
-    },
-    created() {
-        if (this.loggedIn == false) {
-            this.$router.push('/')
+        currentUser() {
+            return store.state.user;
         }
     },
     methods: {
@@ -67,18 +57,11 @@ export default {
                 .then(response => response.json())
                 .then(data => (this.usersList = data));
         },
-
         logout() {
             store.dispatch('logout');
             this.$router.push('/')
         }
+
     }
 }
 </script>
-
-
-<style scoped>
-.navbar-nav .dropdown-menu {
-    position: absolute;
-}
-</style>

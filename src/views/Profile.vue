@@ -1,7 +1,7 @@
 <template>
     <header-component />
     <div>
-        <h2>Hi</h2>
+        {{ currentUser }}
     </div>
 </template>
 <script>
