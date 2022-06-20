@@ -12,6 +12,10 @@ class UserService {
         return axios.get(BASE_URL + 'Posts/UserPosts/' + user_id);
     }
 
+    getAllPosts() {
+        return axios.get(BASE_URL + 'Posts/all');
+    }
+
     createPost(data) {
         return axios.post(BASE_URL + 'Posts', data, { headers: authHeader() });
     }
@@ -22,10 +26,6 @@ class UserService {
 
     getMyPosts() {
         return axios.get(BASE_URL + 'mine', { headers: authHeader() });
-    }
-
-    getAllPosts() {
-        return axios.get(BASE_URL + 'Posts/all');
     }
 
     // USERS

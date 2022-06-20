@@ -1,31 +1,37 @@
 <template>
-    <ul>
-        <li v-for="p in this.posts">
-            {{ p.id }}: {{ p.content }}
-        </li>
-    </ul>
+    <div class="container">
+        <ul>
+            <li v-for="p in this.posts">
+                {{ p.id }}: {{ p.content }}
+                {{ p }}
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
-import { BASE_URL } from '../definitions';
-import axios from 'axios';
-
+import UserService from "../services/user.service";
 export default {
+    name: "Dashboard",
     data() {
         return {
             posts: [],
-            errors: []
-        }
+        };
     },
-
-    // Fetches posts when the component is created.
-    async created() {
-        try {
-            const response = await axios.get(`${BASE_URL}/Posts/all`)
-            this.posts = response.data
-        } catch (e) {
-            this.errors.push(e)
-        }
-    }
-}
+    mounted() {
+        UserService.getAllPosts().then(
+            (response) => {
+                this.posts = response.data;
+            },
+            (error) => {
+                this.posts =
+                    (error.response &&
+                        error.response.data &&
+                        error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+            }
+        );
+    },
+};
 </script>

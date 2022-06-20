@@ -1,7 +1,12 @@
-# Vue 3 + Vite
+# Browser client for [Studbaza REST API](https://github.com/lebkowskih/studbazabackend)
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Tech stack
+
+- vue3 (and friends: `vite`, `vuex`)
+- `yum` - form validation
+- `axios` - router assistant and fetcher
 
 ## Recommended IDE Setup
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+- Prettier (pretty please)
