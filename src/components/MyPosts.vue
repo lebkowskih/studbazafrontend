@@ -1,5 +1,4 @@
 <template>
-    <!-- TODO: Make a unified component out of that -->
     <div class="container">
         <ul>
             <li v-for="p in this.posts">
@@ -11,17 +10,16 @@
 </template>
 
 <script>
-// TODO: Make a unified component out of that
 import UserService from "../services/user.service";
 export default {
-    name: "Dashboard",
+    name: "MyPosts",
     data() {
         return {
             posts: [],
         };
     },
     mounted() {
-        UserService.getAllPosts().then(
+        UserService.getMyPosts().then(
             (response) => {
                 this.posts = response.data;
             },

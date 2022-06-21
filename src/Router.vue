@@ -9,7 +9,7 @@ import SignIn from './components/SignIn.vue'
 const routes = {
     '/': Home,
     '/about': About,
-    '/dashboard': Dashboard, // Lists all posts
+    '/dashboard': Dashboard,
     '/create-post': CreatePost,
     '/sign-in': SignIn,
 }

@@ -1,10 +1,13 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Home from "./components/Home.vue";
-import Dashboard from "./components/Dashboard.vue";
+// import Dashboard from "./components/Dashboard.vue";
+import UserProfile from "./components/UserProfile.vue";
 import Login from "./components/Login.vue";
 import Register from "./components/Register.vue";
 // lazy-loaded
 const Profile = () => import("./components/Profile.vue")
+const Dashboard = () => import("./components/Dashboard.vue")
+// const UserProfile = () => import("./components/UserProfile.vue")
 // const BoardAdmin = () => import("./components/BoardAdmin.vue")
 // const BoardModerator = () => import("./components/BoardModerator.vue")
 // const BoardUser = () => import("./components/BoardUser.vue")
@@ -36,6 +39,12 @@ const routes = [
         name: "profile",
         // lazy-loaded
         component: Profile,
+    },
+    {
+        path: "/userprofile/:id", // TODO
+        name: "userprofile",
+        // lazy-loaded
+        component: UserProfile,
     },
     // {
     //     path: "/admin",
