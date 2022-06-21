@@ -28,6 +28,7 @@ class AuthService {
             password: password,
             picture: "picture"
         });
+
     }
 }
 export default new AuthService();
