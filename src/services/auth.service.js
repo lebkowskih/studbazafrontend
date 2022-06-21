@@ -11,11 +11,13 @@ class AuthService {
             });
         if (response.data.token && response.data.succeeded) {
             localStorage.setItem(cookieKey, JSON.stringify(response.data));
+            localStorage.setItem('username',email);
         }
         return response.data;
     }
 
     logout() {
+        localStorage.removeItem('username');
         localStorage.removeItem(cookieKey);
     }
 
@@ -26,6 +28,7 @@ class AuthService {
             password: password,
             picture:"picture"
         });
+
     }
 }
 export default new AuthService();

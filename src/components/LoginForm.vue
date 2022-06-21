@@ -54,7 +54,7 @@ export default {
     },
     created() {
         if (this.loggedIn) {
-            this.$router.push("/profile");
+            this.$router.push("/home");
         }
     },
     methods: {
@@ -63,7 +63,7 @@ export default {
             email:this.email,
             password:this.password}).then(
                 () => {
-                    this.$router.push("/profile");
+                    this.$router.push("/home");
                 },
                 (error) => {
                     this.loading = false;
