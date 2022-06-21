@@ -71,9 +71,7 @@ export default {
         logout() {
             store.dispatch('logout');
             this.$router.push('/')
-
         }
-
     }
 }
 </script>
