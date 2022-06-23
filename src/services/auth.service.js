@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BASE_URL, cookieKey } from './definitions';
+import { BASE_URL, cookieKey } from '../definitions';
 
 
 class AuthService {
@@ -20,10 +20,11 @@ class AuthService {
     }
 
     register(user) {
-        return axios.post(BASE_URL + 'signup', {
+        return axios.post(BASE_URL + 'Users', {
             username: user.username,
             email: user.email,
-            password: user.password
+            password: user.password,
+            picture: user.picture
         });
     }
 }

@@ -3,17 +3,16 @@ import authHeader from './auth-header';
 import { BASE_URL } from '../definitions';
 
 class UserService {
-    // POSTS
-    getPost(postId) {
+    getAllPosts() {
+        return axios.get(BASE_URL + 'Posts/all');
+    }
+
+    getPostById(postId) {
         return axios.get(BASE_URL + 'Posts/' + postId);
     }
 
     getUserPosts(user_id) {
         return axios.get(BASE_URL + 'Posts/UserPosts/' + user_id);
-    }
-
-    getAllPosts() {
-        return axios.get(BASE_URL + 'Posts/all');
     }
 
     createPost(data) {
@@ -26,23 +25,6 @@ class UserService {
 
     getMyPosts() {
         return axios.get(BASE_URL + 'mine', { headers: authHeader() });
-    }
-
-    // USERS
-    loginUser(email, password) {
-        return axios.post(BASE_URL + 'Users/signIn', {
-            userEmail: email,
-            password: password
-        });
-    }
-
-    createUser(username, email, password, picture) {
-        return axios.post(BASE_URL + 'Users ', {
-            username: username,
-            email: email,
-            password: password,
-            picture: picture
-        });
     }
 
     getUserByUsername(username) {
