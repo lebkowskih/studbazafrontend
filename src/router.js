@@ -1,6 +1,8 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Home from '../src/views/Home.vue'
 import SignIn from "../src/views/SignIn.vue";
+import store from '../src/store/index'
+import { publicPages } from '../src/definitions'
 // lazy-loaded
 const Profile = () => import("../src/views/Profile.vue")
 const routes = [
@@ -24,18 +26,19 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
 });
+
+
+
 export default router;
 
-// If you want to check Authorized status everytime a navigating action is trigger, just add router.beforeEach() inside src / router.js like this:
-// router.beforeEach((to, from, next) => {
-//     const publicPages = ['/login', '/register', '/home'];
-//     const authRequired = !publicPages.includes(to.path);
-//     const loggedIn = localStorage.getItem('user');
-//     // trying to access a restricted page + not logged in
-//     // redirect to login page
-//     if (authRequired && !loggedIn) {
-//         next('/login');
-//     } else {
-//         next();
-//     }
-// });
+
+router.beforeEach((to, from, next) => {
+    const publicPages = ['/'];
+    const authRequired = !publicPages.includes(to.path);
+    const loggedIn = store.state.status.loggedIn;
+    if (authRequired && !loggedIn) {
+        next('/');
+    } else {
+        next();
+    }
+});

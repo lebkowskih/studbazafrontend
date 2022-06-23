@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_URL, cookieKey } from '../definitions.js';
-
+import router from '../router'
 
 class AuthService {
     async login({ email, password }) {
@@ -28,7 +28,6 @@ class AuthService {
             password: password,
             picture: "picture"
         });
-
     }
 }
 export default new AuthService();
