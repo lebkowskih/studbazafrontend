@@ -1,6 +1,5 @@
 <script>
 import Home from './components/Home.vue'
-import About from './components/About.vue'
 import NotFound from './components/NotFound.vue'
 import Dashboard from './components/Dashboard.vue'
 import CreatePost from './components/CreatePost.vue'
