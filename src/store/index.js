@@ -1,12 +1,15 @@
 import { createStore } from "vuex";
 import AuthService from '../services/auth.service';
+import createPersistedState from 'vuex-persistedstate'
 const user = JSON.parse(localStorage.getItem('user'));
 const initialState = user
     ? { status: { loggedIn: true }, user }
     : { status: { loggedIn: false }, user: null };
 
 const store = createStore({
-    state: initialState,
+    plugins: [createPersistedState({
+    })],
+    state:initialState,
     actions: {
         login({ commit }, user) {
             return AuthService.login(user).then(

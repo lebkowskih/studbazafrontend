@@ -53,6 +53,8 @@
 import { Form, Field, ErrorMessage } from "vee-validate";
 import { schema } from '../validations/formValidation';
 import store from '../store/index'
+import router from '../router'
+
 
 export default {
   data(){
@@ -86,7 +88,7 @@ export default {
                     this.message = data.message;
                     this.successful = true;
                     this.loading = false;
-                },
+               },
                 (error) => {
                     this.message =
                         error.response.data.Message

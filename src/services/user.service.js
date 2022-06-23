@@ -1,8 +1,11 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 import { BASE_URL } from '../definitions';
+var user = JSON.parse(localStorage.getItem('user-token'))
+
 
 class UserService {
+
     createPost(data) {
         return axios.post(BASE_URL + 'Posts', data, { headers: authHeader() });
     }
@@ -13,10 +16,6 @@ class UserService {
 
     getPost(postId) {
         return axios.get(BASE_URL + 'Posts/' + postId);
-    }
-
-    getMyPosts() {
-        return axios.get(BASE_URL + 'mine', { headers: authHeader() });
     }
 
     getAllPosts() {

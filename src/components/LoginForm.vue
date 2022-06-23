@@ -47,23 +47,14 @@ export default {
             email:"",
             passowrd:""
         }},
-    computed: {
-        loggedIn() {
-            return store.state.status.loggedIn;
-        },
-    },
-    created() {
-        if (this.loggedIn) {
-            this.$router.push("/home");
-        }
-    },
+    
     methods: {
         signIn(){
         store.dispatch('login',{
             email:this.email,
             password:this.password}).then(
                 () => {
-                    this.$router.push("/home");
+                    this.$router.push("/profile");
                 },
                 (error) => {
                     this.loading = false;
