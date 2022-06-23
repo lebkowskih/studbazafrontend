@@ -9,7 +9,7 @@ const initialState = user
 const store = createStore({
     plugins: [createPersistedState({
     })],
-    state:initialState,
+    state: initialState,
     actions: {
         login({ commit }, user) {
             return AuthService.login(user).then(

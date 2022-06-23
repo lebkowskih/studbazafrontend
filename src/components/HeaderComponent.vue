@@ -8,15 +8,8 @@
 
         <ul class="navbar-nav me-auto">
           <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Znajdź użytkownika"
-              aria-label="Search"
-              v-on:keyup="getUser"
-              v-model="username"
-              list="users"
-            />
+            <input class="form-control me-2" type="search" placeholder="Znajdź użytkownika" aria-label="Search"
+              v-on:keyup="getUser" v-model="username" list="users" />
             <datalist id="users">
               <option v-for="user in usersList" :key="user.id">
                 {{ user.email }}
@@ -29,21 +22,10 @@
         </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item dropdown">
-            <a
-              id="navbarDropdown"
-              class="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Yś</a
-            >
-            <div
-              class="dropdown-menu dropdown-menu-right"
-              aria-labelledby="navbarDropdown"
-            >
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Yś</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" @click="logout">Wyloguj się</a>
             </div>
           </li>

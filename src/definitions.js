@@ -5,4 +5,3 @@ export const BASE_URL = "https://localhost:44381/api/";
 export const cookieKey = "user-token";
 
 export const publicPages = ['/'];
-

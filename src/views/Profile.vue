@@ -3,22 +3,11 @@
   <div class="container">
     <div class="col-12">
       <div class="card" style="margin: 5px">
-        <button
-          id="cardbutton"
-          class="button_post"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-        >
+        <button id="cardbutton" class="button_post" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <div class="card-body">O czym myślisz?</div>
         </button>
       </div>
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -26,12 +15,7 @@
                 <section class="post">
                   <header>Utwórz post</header>
                   <form id="form" action="#">
-                    <textarea
-                      placeholder="O czym myślisz?"
-                      spellcheck="false"
-                      required
-                      v-model="content"
-                    ></textarea>
+                    <textarea placeholder="O czym myślisz?" spellcheck="false" required v-model="content"></textarea>
                     <button @click="addPost()" class="formbutton">
                       Opublikuj
                     </button>
@@ -42,12 +26,7 @@
           </div>
         </div>
       </div>
-      <div
-        class="card"
-        style="margin: 5px"
-        v-for="(post, postindex) in mineposts"
-        :key="postindex"
-      >
+      <div class="card" style="margin: 5px" v-for="(post, postindex) in mineposts" :key="postindex">
         <div class="card-body">
           <button @click="deletePost(postindex)">Usuń</button>
           {{ post.content }} {{ postindex }}
