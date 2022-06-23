@@ -12,30 +12,31 @@
           <Form :validation-schema="schema">
 
             <div class="form-group">
-              <label for="username">Nazwa użytkownika</label>
-              <Field name="username" type="text" class="form-control" id="username"
-                placeholder="Wprowadź nazwę użytkownika" v-model="username" />
-              <ErrorMessage name="username" class="error-feedback" />
+              <label for="registerUsername">Nazwa użytkownika</label>
+              <Field name="registerUsername" type="text" class="form-control" id="registerUsername"
+                placeholder="Wprowadź nazwę użytkownika" v-model="registerUsername" />
+              <ErrorMessage name="registerUsername" class="error-feedback" />
             </div>
 
             <div class="form-group">
-              <label for="email">Adres e-mail</label>
-              <Field name="email" type="email" class="form-control" id="email" placeholder="Wprowadź e-mail"
-                v-model="email" />
-              <ErrorMessage name="email" class="error-feedback" />
+              <label for="registerEmail">Adres e-mail</label>
+              <Field name="registerEmail" type="registerEmail" class="form-control" id="registerEmail"
+                placeholder="Wprowadź e-mail" v-model="registerEmail" />
+              <ErrorMessage name="registerEmail" class="error-feedback" />
             </div>
 
             <div class="form-group">
-              <label for="password">Hasło</label>
-              <Field name="password" type="password" class="form-control" id="password" placeholder="Wprowadź hasło"
-                v-model="password" />
-              <ErrorMessage name="password" class="error-feedback" />
+              <label for="registerPassword">Hasło</label>
+              <Field name="registerPassword" type="registerPassword" class="form-control" id="registerPassword"
+                placeholder="Wprowadź hasło" v-model="registerPassword" />
+              <ErrorMessage name="registerPassword" class="error-feedback" />
             </div>
 
             <div class="form-group">
-              <label for="photo">Zdjęcie</label>
-              <Field name="photo" type="file" class="form-control" id="photo" v-model="photo" />
-              <ErrorMessage name="photo" class="error-feedback" />
+              <label for="registerPicture">Zdjęcie</label>
+              <Field name="registerPicture" type="file" class="form-control" id="registerPicture"
+                v-model="registerPicture" />
+              <ErrorMessage name="registerPicture" class="error-feedback" />
             </div>
 
 
@@ -67,9 +68,10 @@ export default {
       successful: false,
       loading: false,
       message: "",
-      username: "",
-      email: "",
-      password: "",
+      registerUsername: "",
+      registerEmail: "",
+      registerPassword: "",
+      registerPicture: "",
       schema
     }
   },
@@ -85,9 +87,10 @@ export default {
       this.loading = true;
       store.dispatch("register",
         {
-          username: this.username,
-          email: this.email,
-          password: this.password
+          username: this.registerUsername,
+          email: this.registerEmail,
+          password: this.registerPassword
+          // TODO: handle pictures
         })
         .then(
           (data) => {
@@ -96,8 +99,7 @@ export default {
             this.loading = false;
           },
           (error) => {
-            this.message =
-              error.response.data.Message
+            this.message = error.response.data.Message
             this.successful = false;
             this.loading = false;
           }
