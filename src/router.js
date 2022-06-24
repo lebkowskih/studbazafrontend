@@ -2,8 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from '../src/views/Home.vue'
 import SignIn from "../src/views/SignIn.vue";
 import store from '../src/store/index'
-import { publicPages } from '../src/definitions'
-import User from '../src/components/User.vue'
+import User from '../src/views/User.vue'
 // lazy-loaded
 const Profile = () => import("../src/views/Profile.vue")
 
