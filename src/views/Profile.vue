@@ -154,6 +154,7 @@ export default {
           },
         }
       );
+      this.$router.go();
     },
     deletePost(postindex) {
       axios.delete(BASE_URL + "Posts/" + this.mineposts[postindex].id, {

@@ -2,7 +2,7 @@
   <header>
     <nav class="navbar navbar-dark bg-primary shadow-sm">
       <div class="container-md">
-        <a class="navbar-brand" href="">
+        <a class="navbar-brand">
           <img src="../assets/logo.png" alt="" height="30" />
         </a>
 
@@ -13,16 +13,16 @@
               type="search"
               placeholder="Znajdź użytkownika"
               aria-label="Search"
-              v-on:keyup="getUser"
+              v-on:keyup="getUsers"
               v-model="username"
               list="users"
             />
             <datalist id="users">
               <option v-for="user in usersList" :key="user.id">
-                {{ user.email }}
+                {{ user.username }}
               </option>
             </datalist>
-            <button @click="redirectToUser">
+            <button @click="redirectUser()">
               <img src="../assets/search.svg" />
             </button>
           </form>
@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import store from "../store/index";
 
 export default {
@@ -61,6 +62,7 @@ export default {
     return {
       usersList: null,
       username: "",
+      userid: "",
       loggedUser: localStorage.getItem("username"),
     };
   },
@@ -70,15 +72,17 @@ export default {
     },
   },
   methods: {
-    getUser() {
+    getUsers() {
       fetch("https://localhost:44381/api/Users/username/" + this.username)
         .then((response) => response.json())
         .then((data) => (this.usersList = data));
     },
-
     logout() {
       store.dispatch("logout");
       this.$router.push("/");
+    },
+    redirectUser() {
+      this.$router.push("/users/" + this.username);
     },
   },
 };
