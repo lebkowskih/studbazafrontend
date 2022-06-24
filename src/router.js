@@ -3,8 +3,11 @@ import Home from '../src/views/Home.vue'
 import SignIn from "../src/views/SignIn.vue";
 import store from '../src/store/index'
 import { publicPages } from '../src/definitions'
+import User from '../src/components/User.vue'
 // lazy-loaded
 const Profile = () => import("../src/views/Profile.vue")
+
+
 const routes = [
     {
         path: "/",
@@ -12,12 +15,16 @@ const routes = [
         component: SignIn,
     },
     {
+        path:"/users/:username",
+        component: User
+    },
+    {
         path: "/home",
         component: Home,
     },
     {
-        path: "/profile",
-        name: "profile",
+        path: "/yourprofile",
+        name: "yourprofile",
         // lazy-loaded
         component: Profile,
     },

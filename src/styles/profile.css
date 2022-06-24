@@ -47,10 +47,32 @@ form textarea:valid ~ button{
 }
 
 .button_post:hover {
-    background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
-    background-color:#bab1ba;
+    background:linear-gradient(to bottom, rgb(13,110,253) 5%, rgb(3, 32, 75)  100%);
+    background-color:rgb(13,110,253);
 }
 .button_post:active {
     position:relative;
     top:1px;
+}
+
+.btndelete {
+  background-color: rgb(13,110,253); 
+  border: none; 
+  color: white; 
+  cursor: pointer; 
+  position: absolute;
+  left: 2%;
+}
+
+.btnedit {
+  background-color: rgb(13,110,253); 
+  border: none; 
+  color: white; 
+  cursor: pointer; 
+  position: absolute;
+  left: 5%;
+}
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
 }
