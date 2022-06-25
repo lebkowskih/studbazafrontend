@@ -25,9 +25,8 @@
 
             <div class="form-group">
               <label for="registerPassword">Hasło</label>
-              <Field name="registerPassword" type="registerPassword" class="form-control" id="registerPassword"
+              <Field name="registerPassword" type="password" class="form-control" id="registerPassword"
                 placeholder="Wprowadź hasło" v-model="registerPassword" />
-              >>>>>>> origin/master
               <ErrorMessage name="registerPassword" class="error-feedback" />
             </div>
 
