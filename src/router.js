@@ -2,8 +2,8 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from '../src/views/Home.vue'
 import SignIn from "../src/views/SignIn.vue";
 import store from '../src/store/index'
-import { publicPages } from '../src/definitions'
-import User from '../src/components/User.vue'
+import User from '../src/views/User.vue'
+import ChangeLogin from '../src/views/ChangeLogin.vue'
 // lazy-loaded
 const Profile = () => import("../src/views/Profile.vue")
 
@@ -28,6 +28,11 @@ const routes = [
         // lazy-loaded
         component: Profile,
     },
+    {
+        path:'/changelogin',
+        name:"changelogin",
+        component:ChangeLogin
+    }
 ];
 const router = createRouter({
     history: createWebHistory(),
